@@ -69,7 +69,7 @@ import polllist from './PollList.vue'
     },
 
     fetchPolls: function(){
-      this.$http.get('http://localhost:8000/poll').then(
+      this.$http.get('https://radiant-tor-19365.herokuapp.com/poll').then(
         function(response){
           this.pollList = response.data
         }
@@ -90,7 +90,7 @@ import polllist from './PollList.vue'
         delete poll.expiration
       }
 
-      this.$http.post('http://localhost:8000/poll/new',poll).then(
+      this.$http.post('https://radiant-tor-19365.herokuapp.com/new',poll).then(
         function(response){
           this.pollList.lastest.unshift(response.body)
           this.newPoll = {

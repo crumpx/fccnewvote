@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     fetchPoll: function(id) {
-      this.$http.get('http://localhost:8000/poll/'+id).then(
+      this.$http.get('https://radiant-tor-19365.herokuapp.com/poll/'+id).then(
         function(response){
           this.poll = response.body
           this.cookie = this.$cookie.get(this.poll._id)
@@ -105,7 +105,7 @@ export default {
     },
 
     getData: function() {
-      this.$http.put('http://localhost:8000/poll/'+this.poll._id, {optionId: this.picked}).then(function(response){
+      this.$http.put('https://radiant-tor-19365.herokuapp.com/poll/'+this.poll._id, {optionId: this.picked}).then(function(response){
         this.poll = response.body
         this.$cookie.set(response.body._id, 'voted', 9999)
         this.cookie = 'voted'
