@@ -8,7 +8,7 @@
         <i class="fa fa-bars" aria-hidden="true" v-on:click="openMenu()"></i>
       <div v-bind:class="[ isOpen ? 'open' : 'close', 'nav-menu']">
         <router-link to="/">Home</router-link>
-        <router-link to="/about">About</router-link>
+        <router-link to="about">About</router-link>
       </div>
         </div>
     </nav>

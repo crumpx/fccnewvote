@@ -11,15 +11,15 @@ export default new Router({
   base: __dirname,
   routes: [
     {
-      path: '/fccnewvote',
+      path: '/',
       component: Poll
     },
     {
-      path: '/fccnewvote/poll/:id',
+      path: 'poll/:id',
       component: pollDetails
     },
     {
-      path: '/fccnewvote/about',
+      path: 'about',
       component: About
     },
   ]
