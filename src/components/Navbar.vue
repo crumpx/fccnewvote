@@ -3,12 +3,12 @@
     <nav>
      <div class='navbar'>
       <div class="brand">
-        <h1><router-link to="/fccnewvote">Simple Poll</router-link></h1>
+        <h1><router-link to="/">Simple Poll</router-link></h1>
       </div>
         <i class="fa fa-bars" aria-hidden="true" v-on:click="openMenu()"></i>
       <div v-bind:class="[ isOpen ? 'open' : 'close', 'nav-menu']">
-        <router-link to="/fccnewvote">Home</router-link>
-        <router-link to="/fccnewvote/about">About</router-link>
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
       </div>
         </div>
     </nav>
