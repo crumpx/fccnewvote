@@ -39,13 +39,17 @@ export default {
     margin: 0 auto
     ul
       list-style: none
+      text-align: center
+      padding: 0
+
       li
         display: inline-block
+
         a
           font-size: 200%
           margin: 10px
           text-decoration: none
-          color: $black
+          color: #000
     h1
       text-align: center
     p

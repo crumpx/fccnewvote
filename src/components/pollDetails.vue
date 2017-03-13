@@ -77,7 +77,7 @@ export default {
   },
   filters: {
     formatDate: function(date) {
-      console.log(date)
+      // console.log(date)
       return date.split('T')[0]
     }
   },
@@ -95,7 +95,7 @@ export default {
               this.expired = true
             }
           }
-          console.log(this.poll)
+          // console.log(this.poll)
           }, function(response){
           console.log('something wrong')
         })
@@ -121,7 +121,6 @@ export default {
     },
   created: function(){
       this.fetchPoll(this.$route.params.id)
-
     },
 }
 
@@ -157,11 +156,11 @@ export default {
     &:hover
       background: $green
       color: #fff
-
   .active
     font-size: 20px
     font-weight: bold
     box-shadow: $shadow-up
+    background: $blue
   .center
     text-align: center
   .utility
@@ -173,7 +172,6 @@ export default {
     margin: 30px auto
     border: 1px solid $black
     box-shadow: $shadow-up
-
     .poll, .result
       width: 80%
       margin: 0 auto
@@ -186,6 +184,7 @@ export default {
         transition: all 0.3s ease-in
         &:hover
           box-shadow: $shadow-up
+
           cursor: pointer
 
 

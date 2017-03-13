@@ -90,15 +90,13 @@ import polllist from './PollList.vue'
         delete poll.expiration
       }
 
-      this.$http.post('https://radiant-tor-19365.herokuapp.com/fccnewvote/new',poll).then(
+      this.$http.post('https://radiant-tor-19365.herokuapp.com/poll/new',poll).then(
         function(response){
           this.pollList.lastest.unshift(response.body)
           this.newPoll = {
                   title: '',
-                  // description: '',
                   options: [{text: ''},{text: ''}],
                 }
-          // this.$router.push('poll/'+response.body.shorturl)
 
         }, function(response){
           console.log('something wrong')
@@ -127,9 +125,14 @@ import polllist from './PollList.vue'
   button
     border: 0
     outline: 0
-    padding: 15px
-    color: #fff
-    background: $green
+    margin: 0
+    padding: 20px
+    color: #000
+    background: $white
+    border: 1px solid $black
+    &:hover
+      background: $green
+      color: #fff
   h2
     font-size: 1.5em
     text-align: center

@@ -89,17 +89,19 @@ export default {
       border-top: 1px solid $white
       a
         display: block
-        padding: 20px 10px
         text-align: center
+        line-height: 60px
         @media screen and (min-width: 760px)
           display: inline-block
           padding: 0
+          margin: 0 10px
+          &:hover
+            color: green
       @media screen and (min-width: 760px)
         border: none
         display: block
         width: initial
         position: static
-
     h1
       text-decoration: none
       font-family: 'Open Sans', sans-serif
