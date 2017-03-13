@@ -3,7 +3,7 @@
       <div class="popular">
         <h2>Most Popular</h2>
         <div class="item" v-for="item in lists.popular">
-          <router-link v-bind:to="'/poll/'+item.shorturl">
+          <router-link v-bind:to="'/fccnewvote/poll/'+item.shorturl">
             <div class="poll-img">
               <span>{{item.count?item.count:0}}</span>
 
@@ -18,7 +18,7 @@
       <div class="latest">
         <h2>The Lastest</h2>
         <div class="item" v-for="item in lists.lastest">
-          <router-link v-bind:to="'/poll/'+item.shorturl">
+          <router-link v-bind:to="'/fccnewvote/poll/'+item.shorturl">
             <div class="poll-img">
               <span>{{item.count?item.count:0}}</span>
             </div>

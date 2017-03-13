@@ -2,6 +2,14 @@
   <div class="container">
     <h1>This is a Vue frontend</h1>
     <p v-html='message'></p>
+    <h1>By: <br />Gang Zhao</h1>
+
+      <ul>
+        <li><a href="https://www.freecodecamp.com/crumpx"><i class="fa fa-free-code-camp" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/crumpx"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+        <li><a href="http://crumpz.info/www.linkedin.com/in/gang-zhao-198201"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+      </ul>
+
   </div>
 </template>
 
@@ -29,6 +37,15 @@ export default {
     width: 100%
     max-width: 790px
     margin: 0 auto
+    ul
+      list-style: none
+      li
+        display: inline-block
+        a
+          font-size: 200%
+          margin: 10px
+          text-decoration: none
+          color: $black
     h1
       text-align: center
     p

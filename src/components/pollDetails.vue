@@ -101,8 +101,12 @@ export default {
         })
       },
 
+      toShow: function(){
+        return this.cookie == null ? 'showPoll' : 'showResult'
+      },
 
-    },
+
+
 
     getData: function() {
       this.$http.put('https://radiant-tor-19365.herokuapp.com/poll/'+this.poll._id, {optionId: this.picked}).then(function(response){
@@ -112,7 +116,6 @@ export default {
       }, function(response){
         console.log('something wrong')
       })
-
     },
 
     },
@@ -148,8 +151,13 @@ export default {
     outline: 0
     margin: 0
     padding: 20px
-    color: #fff
-    background: $green
+    color: #000
+    background: $white
+    border: 1px solid $black
+    &:hover
+      background: $green
+      color: #fff
+
   .active
     font-size: 20px
     font-weight: bold
