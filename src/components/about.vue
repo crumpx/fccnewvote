@@ -1,9 +1,15 @@
 <template lang="html">
   <div class="container">
-    <h1>This is a Vue frontend</h1>
+    <h1>About this project</h1>
     <p v-html='message'></p>
-    <h1>By: <br />Gang Zhao</h1>
+    <h1>frontend with:</h1>
+    <ol>
+      <li> <a href="https://vuejs.org">Vue.js</a></li>
+      <li> <a href="https://github.com/xlsdg/vue-echarts-v3">vue-echarts-v3</a></li>
 
+
+    </ol>
+    <h1>By: <br />Gang Zhao</h1>
       <ul>
         <li><a href="https://www.freecodecamp.com/crumpx"><i class="fa fa-free-code-camp" aria-hidden="true"></i></a></li>
         <li><a href="https://github.com/crumpx"><i class="fa fa-github" aria-hidden="true"></i></a></li>
@@ -21,11 +27,7 @@ export default {
       message: `<p>A simple frontend project for Free Code Camp Poll project
       Backend is Node.js, Express and Mongoose(mongodb). There are alot of
       functionalities such as user authentication, poll modification, delete,
-      etc. not yet implemented.</p>
-
-      <p>The bar chart is done with simple CSS, one day when this site gets famous and popular, I will
-      figure out a way to generate real charts. Currently each option will only
-      take 100 votes before the chart displaying funny...</p>`,
+      etc. not yet implemented.</p>`,
     }
   },
 }

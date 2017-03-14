@@ -145,7 +145,7 @@ import polllist from './PollList.vue'
     outline: 0
     padding: 12px
     color: $black
-    background: $blue
+    background: #b4a996
 
   .spacer
     height: 10px

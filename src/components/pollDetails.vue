@@ -50,10 +50,10 @@
 </template>
 
 <script>
-// import IEcharts from 'vue-echarts-v3'
-// import 'echarts/lib/chart/bar'
-// import 'echarts/lib/component/title'
 import IEcharts from 'vue-echarts-v3'
+import 'echarts/lib/chart/bar'
+// import 'echarts/lib/component/title'
+// import IEcharts from 'vue-echarts-v3'
 export default {
 
   name: 'polldetails',
@@ -83,31 +83,25 @@ export default {
   computed: {
     bar() {
       return {
-      title: {
-        text: this.poll.title
-      },
-      xAxis: {
-        min: 0,
-        splitNumber: 1,
-        interval: 1,
+        xAxis: {
+          min: 0,
+          splitNumber: 1,
+          interval: 1,
+        },
+        yAxis: {
+          data: this.poll.options.map(option => {
+              return option.text
+            })
+        },
+        series: [{
+          name: '',
+          type: 'bar',
 
-      },
-      yAxis: {
-        data: this.poll.options.map(option => {
-            return option.text
-          })
-      },
-      series: [{
-        name: '',
-        type: 'bar',
-        // color: this.poll.options.map(option => {
-        //   return option.color
-        // }),
-        barWidth: 80 / this.poll.options.length + '%',
-        data: this.poll.options.map(option => {
-          return {value: option.count, itemStyle:{normal: {color: option.color}}}
-        }),
-      }]
+          barWidth: 80 / this.poll.options.length + '%',
+          data: this.poll.options.map(option => {
+            return {value: option.count, itemStyle:{normal: {color: option.color}}}
+          }),
+        }]
     }
     },
 

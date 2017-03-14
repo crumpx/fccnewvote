@@ -100,8 +100,10 @@ export default {
           .poll-img
             min-width: 80px
             height: 80px
-            background: $blue
-            border-radius: 100%
+            // background: #b4a996
+            background: url("../assets/pie.png")
+            background-size: cover
+            // border-radius: 100%
             position: relative
             span
               position: absolute
@@ -109,6 +111,8 @@ export default {
               top: 50%
               transform: translate(-50%, -50%)
               color: $white
+              font-weight: 700
+              text-shadow: 1px 1px #000
             img
               border-radius: 100%
 
