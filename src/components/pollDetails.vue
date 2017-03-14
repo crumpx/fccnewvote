@@ -23,7 +23,7 @@
         <h3>Created at: {{poll.createdAt | formatDate}}</h3>
         <h3 v-if="expired" v-bind:style="{color: 'red'}">This poll had expired</h3>
           <div class="result-container">
-            <div class="result-options">
+            <!-- <div class="result-options">
               <template v-for='(option, index) of poll.options'>
                 <div class="poll-option">
                   <div class="color-box" :style="{background: option.color, borderRadius: '100%'}">
@@ -31,18 +31,9 @@
                   <p>{{option.text}}</p>
                 </div>
               </template>
-            </div>
+            </div> -->
               <div class="result-chart">
-            <div class="result-bar">
-              <template v-for='(option, index) of poll.options'>
-                <div class="poll-bar" v-bind:style="{height: option.count+'%', width: '20px', background: option.color}"></div>
-              </template>
-          </div>
-          <div class="result-count">
-            <template v-for='(option, index) of poll.options'>
-              <div class="poll-bar">{{option.count}}</div>
-            </template>
-        </div>
+                <IEcharts :option="bar"  @ready="onReady"></IEcharts>
         </div>
           </div>
       </div>
@@ -59,8 +50,16 @@
 </template>
 
 <script>
+// import IEcharts from 'vue-echarts-v3'
+// import 'echarts/lib/chart/bar'
+// import 'echarts/lib/component/title'
+import IEcharts from 'vue-echarts-v3'
 export default {
+
   name: 'polldetails',
+  components: {
+     IEcharts
+   },
   data(){
     return {
       poll: {
@@ -73,14 +72,46 @@ export default {
       picked: "",
       cookie: null,
       expired: false,
+
     }
   },
   filters: {
     formatDate: function(date) {
-      // console.log(date)
       return date.split('T')[0]
     }
   },
+  computed: {
+    bar() {
+      return {
+      title: {
+        text: this.poll.title
+      },
+      xAxis: {
+        min: 0,
+        splitNumber: 1,
+        interval: 1,
+
+      },
+      yAxis: {
+        data: this.poll.options.map(option => {
+            return option.text
+          })
+      },
+      series: [{
+        name: '',
+        type: 'bar',
+        // color: this.poll.options.map(option => {
+        //   return option.color
+        // }),
+        barWidth: 80 / this.poll.options.length + '%',
+        data: this.poll.options.map(option => {
+          return {value: option.count, itemStyle:{normal: {color: option.color}}}
+        }),
+      }]
+    }
+    },
+
+},
   methods: {
     fetchPoll: function(id) {
       this.$http.get('https://radiant-tor-19365.herokuapp.com/poll/'+id).then(
@@ -104,9 +135,9 @@ export default {
       toShow: function(){
         return this.cookie == null ? 'showPoll' : 'showResult'
       },
-
-
-
+      onReady(instance) {
+         console.log(instance);
+       },
 
     getData: function() {
       this.$http.put('https://radiant-tor-19365.herokuapp.com/poll/'+this.poll._id, {optionId: this.picked}).then(function(response){
@@ -209,12 +240,10 @@ export default {
         margin: 10px 10px 5px
     .result-options
       width: 100%
-      @media screen and (min-width: 768px)
-        width: 50%
+
     .result-chart
       width: 100%
-      @media screen and (min-width: 768px)
-        width: 50%
+      height: 500px
     .result-bar, .result-count
       display: flex
       justify-content: space-around
